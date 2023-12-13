@@ -11,6 +11,11 @@ function _drawWildPokemonList() {
     wildPokemon.forEach(pokemon => content += Pokemon.wildPokemonTemplate(pokemon))
     setHTML("wild-pokemon", content)
 }
+function _drawActivePokemon() {
+    let activePokemon = AppState.activePokemon
+    let content = activePokemon.activePokemonTemplate
+    setHTML('active-pokemon', content)
+}
 
 
 
@@ -19,6 +24,7 @@ export class WildPokemonController {
         console.log('wild poke controller loaded')
         this.getWildPokemon()
         AppState.on('wildPokemon', _drawWildPokemonList)
+        AppState.on('activePokemon', _drawActivePokemon)
     }
     async getWildPokemon() {
         try {
