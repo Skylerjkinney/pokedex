@@ -1,5 +1,6 @@
 import { AccountController } from "./controllers/AccountController.js";
 import { HomeController } from "./controllers/HomeController.js";
+import { WildPokemonController } from "./controllers/WildPokemonController.js";
 import { AuthGuard } from "./services/AuthService.js";
 import { Router } from "./utils/Router.js";
 
@@ -18,8 +19,9 @@ export const router = new Router([
     `
   },
   {
-    path: '#/about',
-    view: 'app/views/AboutView.html'
+    path: '#/wild',
+    controllers: [WildPokemonController],
+    view: 'app/views/WildPokemonView.html'
   },
   {
     path: '#/account',
